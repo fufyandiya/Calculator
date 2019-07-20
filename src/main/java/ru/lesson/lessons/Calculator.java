@@ -48,11 +48,11 @@ public class Calculator {
 	 * @result this.result
 	 */
 	public void divide(final int arg1, final int arg2) {
-		if (arg2 != 0)
+		try {
 			this.result = arg1 / arg2;
-		else {
-			System.out.println("Second arg cannot be zero!");
-			this.result = 0;
+		} catch (ArithmeticException ex) {
+			ex.printStackTrace();
+			System.out.println("Нельзя делить на ноль!");
 		}
 	}
 	/**

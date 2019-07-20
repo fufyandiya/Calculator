@@ -82,22 +82,22 @@ public class InteractRunner {
 	 * @param operation
 	 */
 	public void doOperation(Calculator calc, String firstNumber, String secondNumber, String operation) {
-		if (operation.equals("+")) {
-			calc.add(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
+		try {
+			if (operation.equals("+")) {
+				calc.add(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
+			} else if (operation.equals("-")) {
+				calc.subtract(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
+			} else if (operation.equals("*")) {
+				calc.multiplicate(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
+			} else if (operation.equals("/")) {
+				calc.divide(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
+			} else if (operation.equals("^")) {
+				calc.exponent(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
+			} else
+				System.out.println("Недопустимая операция!");
+		} catch (NumberFormatException ex) {
+			System.out.println("Неправильно введен аргумент(ы)");
 		}
-		else if (operation.equals("-")) {
-			calc.subtract(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
-		}
-		else if (operation.equals("*")) {
-			calc.multiplicate(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
-		}
-		else if (operation.equals("/")) {
-			calc.divide(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
-		}
-		else if (operation.equals("^")) {
-			calc.exponent(Integer.valueOf(firstNumber), Integer.valueOf(secondNumber));
-		}
-		else
-			System.out.println("Wrong operation!");
+
 	}
 }
